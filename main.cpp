@@ -9,12 +9,16 @@ int main(int argc, char *argv[]) {
               << "    http-server-async 0.0.0.0 8080 1\n";
     return EXIT_FAILURE;
   }
-  auto const address = argv[1];
-  auto const port = static_cast<unsigned short>(std::atoi(argv[2]));
-  auto const threads = std::max<int>(1, std::atoi(argv[3]));
+  char* const address = argv[1];
+  int const port = static_cast<unsigned short>(std::atoi(argv[2]));
+  int const threads = std::max<int>(1, std::atoi(argv[3]));
   Server server{threads};
-  server.run(address, port);
   char wait;
+
+  std::cout << "Starting server at: " << address << ":" << port << std::endl;
+  server.run(address, port);
+  std::cout << "Server running - press any key plus enter to stop ..." << std::endl;
   std::cin >> wait;
+ 
   return EXIT_SUCCESS;
 }
