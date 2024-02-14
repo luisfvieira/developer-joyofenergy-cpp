@@ -1,0 +1,5 @@
+sonar-scanner \
+  -Dsonar.projectKey=developer-joyofenergy-cpp \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=http://localhost:9000 \
+  -Dsonar.login=sqp_56568a30e8f982a53ffa10c43bc6593003a4eaaf

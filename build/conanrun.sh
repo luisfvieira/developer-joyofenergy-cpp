@@ -1,0 +1,1 @@
+. "/home/luis/git/developer-joyofenergy-cpp/build/conanrunenv-debug-x86_64.sh"

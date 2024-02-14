@@ -1,0 +1,9 @@
+{
+    "version": 4,
+    "vendor": {
+        "conan": {}
+    },
+    "include": [
+        "/home/luis/git/developer-joyofenergy-cpp/build/CMakePresets.json"
+    ]
+}

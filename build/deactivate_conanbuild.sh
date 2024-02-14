@@ -1,0 +1,1 @@
+. "/home/luis/git/developer-joyofenergy-cpp/build/deactivate_conanbuildenv-debug-x86_64.sh"
