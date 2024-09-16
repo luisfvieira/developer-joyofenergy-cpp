@@ -19,12 +19,13 @@ class Router {
       for (auto &[path, handler] : handlers_) {
         std::regex re{path};
         std::cmatch matches;
-        if (!std::regex_match(uri.begin(), uri.end(), matches, re)) {
-          continue;
+        if (std::regex_match(uri.begin(), uri.end(), matches, re)) {
+          std::cout << "Received request: " << req.target() << std::endl;
+          std::vector<std::string> queries(matches.begin() + 1, matches.end());
+          return handler(req, queries);
         }
-        std::vector<std::string> queries(matches.begin() + 1, matches.end());
-        return handler(req, queries);
       }
+      std::cerr << "URI not found: " << uri << std::endl;
       return make_not_found(req, uri);
     };
   }

@@ -1,0 +1,129 @@
+{
+	"info": {
+		"_postman_id": "7b994e43-bffe-41e7-b807-d87a626b0207",
+		"name": "0-joyenergy",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9134937"
+	},
+	"item": [
+		{
+			"name": "price-plans",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/price-plans/compare-all/smart-meter-2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"price-plans",
+						"compare-all",
+						"smart-meter-2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "readings",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/readings/read/smart-meter-0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"readings",
+						"read",
+						"smart-meter-0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "store-reading",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"smartMeterId\": \"smart-meter-0\",\n    \"electricityReadings\": [\n        {\n            \"time\": \"2020-11-18T08:00:00.725202Z\",\n            \"reading\": 0.0503\n        },\n        {\n            \"time\": \"2020-11-18T08:00:00.725202Z\",\n            \"reading\": 0.0213\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/readings/store",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"readings",
+						"store"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "readings-w-limit",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/price-plans/recommend/smart-meter-0?limit=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"price-plans",
+						"recommend",
+						"smart-meter-0"
+					],
+					"query": [
+						{
+							"key": "limit",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "invalid-req",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/invalid-plans/recommend/invalid",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"invalid-plans",
+						"recommend",
+						"invalid"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

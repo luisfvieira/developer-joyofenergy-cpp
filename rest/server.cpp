@@ -45,12 +45,16 @@ class Impl {
 Server::Server(int concurrency) : impl(std::make_unique<server_detail::Impl>(concurrency)), concurrency(concurrency) {}
 
 Server::~Server() {
+  std::cout << "Received stop sequence ..." << std::endl;
+
   impl->stop();
   for (auto &worker : threads) {
     if (worker.joinable()) {
       worker.join();
     }
   }
+
+  std::cout << "stop sequence completed" << std::endl;
 }
 
 void Server::run(const char *address, unsigned short port) {
